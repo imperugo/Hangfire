@@ -69,6 +69,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire.SqlServer.RabbitMq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire.SqlServer.RabbitMq", "src\Hangfire.SqlServer.RabbitMq\Hangfire.SqlServer.RabbitMq.csproj", "{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire.Core.Net45", "src\Hangfire.Core.Net45\Hangfire.Core.Net45.csproj", "{B443E90C-DA90-4CD4-9D3D-6AB1B6AEF7AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45", "net45", "{D527C689-88FE-483C-9231-AB5D93DCB70A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +131,10 @@ Global
 		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CC51F69-0311-4485-B7DE-9ECAB3A1B5E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B443E90C-DA90-4CD4-9D3D-6AB1B6AEF7AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B443E90C-DA90-4CD4-9D3D-6AB1B6AEF7AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B443E90C-DA90-4CD4-9D3D-6AB1B6AEF7AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B443E90C-DA90-4CD4-9D3D-6AB1B6AEF7AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,5 +148,6 @@ Global
 		{B5476D92-46B1-4A65-A1FD-675342B7BB64} = {119DA7FA-B94C-4B63-AEC9-428EF834E0D8}
 		{DBC6BC12-06AD-4597-9E0F-B77BE754FA2C} = {766BE831-F758-46BC-AFD3-BBEEFE0F686F}
 		{2654D751-33D5-411D-A187-D057FED9CD25} = {766BE831-F758-46BC-AFD3-BBEEFE0F686F}
+		{B443E90C-DA90-4CD4-9D3D-6AB1B6AEF7AD} = {D527C689-88FE-483C-9231-AB5D93DCB70A}
 	EndGlobalSection
 EndGlobal

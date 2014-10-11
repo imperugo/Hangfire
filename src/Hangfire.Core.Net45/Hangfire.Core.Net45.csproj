@@ -1,0 +1,700 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B443E90C-DA90-4CD4-9D3D-6AB1B6AEF7AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hangfire.Core</RootNamespace>
+    <AssemblyName>Hangfire.Core.Net45</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Common.Logging.2.2.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Common.Logging.Core.2.2.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CronExpressionDescriptor">
+      <HintPath>..\..\packages\CronExpressionDescriptor.1.10.1\lib\net35\CronExpressionDescriptor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="NCrontab, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\ncrontab.1.0.0\lib\NCrontab.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.5.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Common\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\AutomaticRetryAttribute.cs">
+      <Link>AutomaticRetryAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\BackgroundJob.cs">
+      <Link>BackgroundJob.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\BackgroundJobClient.cs">
+      <Link>BackgroundJobClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\BackgroundJobClientExtensions.cs">
+      <Link>BackgroundJobClientExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\BackgroundJobServer.cs">
+      <Link>BackgroundJobServer.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\BackgroundJobServerOptions.cs">
+      <Link>BackgroundJobServerOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\BootstrapperConfigurationExtensions.cs">
+      <Link>BootstrapperConfigurationExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\CaptureCultureAttribute.cs">
+      <Link>CaptureCultureAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Client\ClientExceptionContext.cs">
+      <Link>Client\ClientExceptionContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Client\CreateContext.cs">
+      <Link>Client\CreateContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Client\CreatedContext.cs">
+      <Link>Client\CreatedContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Client\CreateJobFailedException.cs">
+      <Link>Client\CreateJobFailedException.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Client\CreatingContext.cs">
+      <Link>Client\CreatingContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Client\IClientExceptionFilter.cs">
+      <Link>Client\IClientExceptionFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Client\IClientFilter.cs">
+      <Link>Client\IClientFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Client\IJobCreationProcess.cs">
+      <Link>Client\IJobCreationProcess.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Client\JobCreationProcess.cs">
+      <Link>Client\JobCreationProcess.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\CachedExpressionCompiler.cs">
+      <Link>Common\CachedExpressionCompiler.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\BinaryExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\BinaryExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\CachedExpressionCompiler.cs">
+      <Link>Common\ExpressionUtil\CachedExpressionCompiler.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\ConditionalExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\ConditionalExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\ConstantExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\ConstantExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\DefaultExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\DefaultExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\ExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\ExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\ExpressionFingerprintChain.cs">
+      <Link>Common\ExpressionUtil\ExpressionFingerprintChain.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\FingerprintingExpressionVisitor.cs">
+      <Link>Common\ExpressionUtil\FingerprintingExpressionVisitor.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\HashCodeCombiner.cs">
+      <Link>Common\ExpressionUtil\HashCodeCombiner.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\Hoisted.cs">
+      <Link>Common\ExpressionUtil\Hoisted.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\HoistingExpressionVisitor.cs">
+      <Link>Common\ExpressionUtil\HoistingExpressionVisitor.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\IndexExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\IndexExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\LambdaExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\LambdaExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\MemberExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\MemberExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\MethodCallExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\MethodCallExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\ParameterExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\ParameterExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\TypeBinaryExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\TypeBinaryExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ExpressionUtil\UnaryExpressionFingerprint.cs">
+      <Link>Common\ExpressionUtil\UnaryExpressionFingerprint.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\GlobalJobFilterCollection.cs">
+      <Link>Common\GlobalJobFilterCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\IJobFilter.cs">
+      <Link>Common\IJobFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\IJobFilterProvider.cs">
+      <Link>Common\IJobFilterProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\Job.cs">
+      <Link>Common\Job.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\JobFilter.cs">
+      <Link>Common\JobFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\JobFilterAttribute.cs">
+      <Link>Common\JobFilterAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\JobFilterAttributeFilterProvider.cs">
+      <Link>Common\JobFilterAttributeFilterProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\JobFilterInfo.cs">
+      <Link>Common\JobFilterInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\JobFilterProviderCollection.cs">
+      <Link>Common\JobFilterProviderCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\JobFilterProviders.cs">
+      <Link>Common\JobFilterProviders.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\JobFilterScope.cs">
+      <Link>Common\JobFilterScope.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\JobHelper.cs">
+      <Link>Common\JobHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\JobLoadException.cs">
+      <Link>Common\JobLoadException.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Common\ReflectedAttributeCache.cs">
+      <Link>Common\ReflectedAttributeCache.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Cron.cs">
+      <Link>Cron.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\BatchCommandDispatcher.cs">
+      <Link>Dashboard\BatchCommandDispatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\CombinedResourceDispatcher.cs">
+      <Link>Dashboard\CombinedResourceDispatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\CommandDispatcher.cs">
+      <Link>Dashboard\CommandDispatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\DashboardMiddleware.cs">
+      <Link>Dashboard\DashboardMiddleware.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\DashboardOwinExtensions.cs">
+      <Link>Dashboard\DashboardOwinExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\DashboardRoutes.cs">
+      <Link>Dashboard\DashboardRoutes.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\EmbeddedResourceDispatcher.cs">
+      <Link>Dashboard\EmbeddedResourceDispatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\HtmlHelper.cs">
+      <Link>Dashboard\HtmlHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\IAuthorizationFilter.cs">
+      <Link>Dashboard\IAuthorizationFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\IRequestDispatcher.cs">
+      <Link>Dashboard\IRequestDispatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\JobHistoryRenderer.cs">
+      <Link>Dashboard\JobHistoryRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\JobMethodCallRenderer.cs">
+      <Link>Dashboard\JobMethodCallRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\JsonStats.cs">
+      <Link>Dashboard\JsonStats.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\LocalRequestsOnlyAuthorizationFilter.cs">
+      <Link>Dashboard\LocalRequestsOnlyAuthorizationFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\NonEscapedString.cs">
+      <Link>Dashboard\NonEscapedString.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pager.cs">
+      <Link>Dashboard\Pager.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\DashboardPage.generated.cs">
+      <Link>Dashboard\Pages\DashboardPage.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\DeletedJobsPage.generated.cs">
+      <Link>Dashboard\Pages\DeletedJobsPage.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\EnqueuedJobsPage.cs">
+      <Link>Dashboard\Pages\EnqueuedJobsPage.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\EnqueuedJobsPage.generated.cs">
+      <Link>Dashboard\Pages\EnqueuedJobsPage.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\FailedJobsPage.generated.cs">
+      <Link>Dashboard\Pages\FailedJobsPage.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\FetchedJobsPage.cs">
+      <Link>Dashboard\Pages\FetchedJobsPage.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\FetchedJobsPage.generated.cs">
+      <Link>Dashboard\Pages\FetchedJobsPage.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\JobDetailsPage.cs">
+      <Link>Dashboard\Pages\JobDetailsPage.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\JobDetailsPage1.generated.cs">
+      <Link>Dashboard\Pages\JobDetailsPage1.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\LayoutPage.cs">
+      <Link>Dashboard\Pages\LayoutPage.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\LayoutPage.generated.cs">
+      <Link>Dashboard\Pages\LayoutPage.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\ProcessingJobsPage.generated.cs">
+      <Link>Dashboard\Pages\ProcessingJobsPage.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\QueuesPage.generated.cs">
+      <Link>Dashboard\Pages\QueuesPage.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\RecurringJobsPage.generated.cs">
+      <Link>Dashboard\Pages\RecurringJobsPage.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\ScheduledJobsPage.generated.cs">
+      <Link>Dashboard\Pages\ScheduledJobsPage.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\ServersPage.generated.cs">
+      <Link>Dashboard\Pages\ServersPage.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\SucceededJobs1.generated.cs">
+      <Link>Dashboard\Pages\SucceededJobs1.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\_Paginator.cs">
+      <Link>Dashboard\Pages\_Paginator.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\_Paginator.generated.cs">
+      <Link>Dashboard\Pages\_Paginator.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\_PerPageSelector.cs">
+      <Link>Dashboard\Pages\_PerPageSelector.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\Pages\_PerPageSelector.generated.cs">
+      <Link>Dashboard\Pages\_PerPageSelector.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\RazorPage.cs">
+      <Link>Dashboard\RazorPage.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\RazorPageDispatcher.cs">
+      <Link>Dashboard\RazorPageDispatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\RequestDispatcherContext.cs">
+      <Link>Dashboard\RequestDispatcherContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\RequestExtensions.cs">
+      <Link>Dashboard\RequestExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\RouteCollection.cs">
+      <Link>Dashboard\RouteCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Dashboard\RouteCollectionExtensions.cs">
+      <Link>Dashboard\RouteCollectionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\DisableConcurrentExecutionAttribute.cs">
+      <Link>DisableConcurrentExecutionAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\GlobalJobFilters.cs">
+      <Link>GlobalJobFilters.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\GlobalStateHandlers.cs">
+      <Link>GlobalStateHandlers.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\IBackgroundJobClient.cs">
+      <Link>IBackgroundJobClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\IBootstrapperConfiguration.cs">
+      <Link>IBootstrapperConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\IJobCancellationToken.cs">
+      <Link>IJobCancellationToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\JobActivator.cs">
+      <Link>JobActivator.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\JobCancellationToken.cs">
+      <Link>JobCancellationToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\JobStorage.cs">
+      <Link>JobStorage.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\OwinBootstrapper.cs">
+      <Link>OwinBootstrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Properties\Annotations.cs">
+      <Link>Properties\Annotations.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\QueueAttribute.cs">
+      <Link>QueueAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\RecurringJob.cs">
+      <Link>RecurringJob.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\RecurringJobManager.cs">
+      <Link>RecurringJobManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\AutomaticRetryServerComponentWrapper.cs">
+      <Link>Server\AutomaticRetryServerComponentWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\EveryMinuteThrottler.cs">
+      <Link>Server\EveryMinuteThrottler.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\IJobPerformanceProcess.cs">
+      <Link>Server\IJobPerformanceProcess.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\IJobPerformer.cs">
+      <Link>Server\IJobPerformer.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\IScheduleInstant.cs">
+      <Link>Server\IScheduleInstant.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\IScheduleInstantFactory.cs">
+      <Link>Server\IScheduleInstantFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\IServerComponent.cs">
+      <Link>Server\IServerComponent.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\IServerExceptionFilter.cs">
+      <Link>Server\IServerExceptionFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\IServerFilter.cs">
+      <Link>Server\IServerFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\IServerSupervisor.cs">
+      <Link>Server\IServerSupervisor.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\IThrottler.cs">
+      <Link>Server\IThrottler.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\JobAbortedException.cs">
+      <Link>Server\JobAbortedException.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\JobPerformanceException.cs">
+      <Link>Server\JobPerformanceException.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\JobPerformanceProcess.cs">
+      <Link>Server\JobPerformanceProcess.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\PerformContext.cs">
+      <Link>Server\PerformContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\PerformedContext.cs">
+      <Link>Server\PerformedContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\PerformingContext.cs">
+      <Link>Server\PerformingContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\RecurringJobScheduler.cs">
+      <Link>Server\RecurringJobScheduler.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ScheduleInstant.cs">
+      <Link>Server\ScheduleInstant.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ScheduleInstantFactory.cs">
+      <Link>Server\ScheduleInstantFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\SchedulePoller.cs">
+      <Link>Server\SchedulePoller.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ServerBootstrapper.cs">
+      <Link>Server\ServerBootstrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ServerContext.cs">
+      <Link>Server\ServerContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ServerExceptionContext.cs">
+      <Link>Server\ServerExceptionContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ServerHeartbeat.cs">
+      <Link>Server\ServerHeartbeat.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ServerJobCancellationToken.cs">
+      <Link>Server\ServerJobCancellationToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ServerOwinExtensions.cs">
+      <Link>Server\ServerOwinExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ServerSupervisor.cs">
+      <Link>Server\ServerSupervisor.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ServerSupervisorCollection.cs">
+      <Link>Server\ServerSupervisorCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ServerSupervisorOptions.cs">
+      <Link>Server\ServerSupervisorOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ServerWatchdog.cs">
+      <Link>Server\ServerWatchdog.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\ServerWatchdogOptions.cs">
+      <Link>Server\ServerWatchdogOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\SharedWorkerContext.cs">
+      <Link>Server\SharedWorkerContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\Worker.cs">
+      <Link>Server\Worker.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\WorkerContext.cs">
+      <Link>Server\WorkerContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Server\WorkerManager.cs">
+      <Link>Server\WorkerManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\StartupConfiguration.cs">
+      <Link>StartupConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\ApplyStateContext.cs">
+      <Link>States\ApplyStateContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\DeletedState.cs">
+      <Link>States\DeletedState.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\ElectStateContext.cs">
+      <Link>States\ElectStateContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\EnqueuedState.cs">
+      <Link>States\EnqueuedState.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\FailedState.cs">
+      <Link>States\FailedState.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\IApplyStateFilter.cs">
+      <Link>States\IApplyStateFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\IElectStateFilter.cs">
+      <Link>States\IElectStateFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\IState.cs">
+      <Link>States\IState.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\IStateChangeProcess.cs">
+      <Link>States\IStateChangeProcess.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\IStateHandler.cs">
+      <Link>States\IStateHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\IStateMachine.cs">
+      <Link>States\IStateMachine.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\IStateMachineFactory.cs">
+      <Link>States\IStateMachineFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\ProcessingState.cs">
+      <Link>States\ProcessingState.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\ScheduledState.cs">
+      <Link>States\ScheduledState.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\StateChangeProcess.cs">
+      <Link>States\StateChangeProcess.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\StateContext.cs">
+      <Link>States\StateContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\StateHandlerCollection.cs">
+      <Link>States\StateHandlerCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\StateMachine.cs">
+      <Link>States\StateMachine.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\StateMachineFactory.cs">
+      <Link>States\StateMachineFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\States\SucceededState.cs">
+      <Link>States\SucceededState.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\StatisticsHistoryAttribute.cs">
+      <Link>StatisticsHistoryAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\IFetchedJob.cs">
+      <Link>Storage\IFetchedJob.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\IMonitoringApi.cs">
+      <Link>Storage\IMonitoringApi.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\InvocationData.cs">
+      <Link>Storage\InvocationData.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\IStorageConnection.cs">
+      <Link>Storage\IStorageConnection.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\IWriteOnlyTransaction.cs">
+      <Link>Storage\IWriteOnlyTransaction.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\JobData.cs">
+      <Link>Storage\JobData.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\DeletedJobDto.cs">
+      <Link>Storage\Monitoring\DeletedJobDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\EnqueuedJobDto.cs">
+      <Link>Storage\Monitoring\EnqueuedJobDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\FailedJobDto.cs">
+      <Link>Storage\Monitoring\FailedJobDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\FetchedJobDto.cs">
+      <Link>Storage\Monitoring\FetchedJobDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\JobDetailsDto.cs">
+      <Link>Storage\Monitoring\JobDetailsDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\JobList.cs">
+      <Link>Storage\Monitoring\JobList.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\ProcessingJobDto.cs">
+      <Link>Storage\Monitoring\ProcessingJobDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\QueueWithTopEnqueuedJobsDto.cs">
+      <Link>Storage\Monitoring\QueueWithTopEnqueuedJobsDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\ScheduledJobDto.cs">
+      <Link>Storage\Monitoring\ScheduledJobDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\ServerDto.cs">
+      <Link>Storage\Monitoring\ServerDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\StateHistoryDto.cs">
+      <Link>Storage\Monitoring\StateHistoryDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\StatisticsDto.cs">
+      <Link>Storage\Monitoring\StatisticsDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\Monitoring\SucceededJobDto.cs">
+      <Link>Storage\Monitoring\SucceededJobDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\RecurringJobDto.cs">
+      <Link>Storage\RecurringJobDto.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\StateData.cs">
+      <Link>Storage\StateData.cs</Link>
+    </Compile>
+    <Compile Include="..\Hangfire.Core\Storage\StorageConnectionExtensions.cs">
+      <Link>Storage\StorageConnectionExtensions.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\fonts\glyphicons-halflings-regular.eot">
+      <Link>Dashboard\Content\fonts\glyphicons-halflings-regular.eot</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\fonts\glyphicons-halflings-regular.ttf">
+      <Link>Dashboard\Content\fonts\glyphicons-halflings-regular.ttf</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\fonts\glyphicons-halflings-regular.woff">
+      <Link>Dashboard\Content\fonts\glyphicons-halflings-regular.woff</Link>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\css\bootstrap.min.css">
+      <Link>Dashboard\Content\css\bootstrap.min.css</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\css\hangfire.css">
+      <Link>Dashboard\Content\css\hangfire.css</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\css\rickshaw.min.css">
+      <Link>Dashboard\Content\css\rickshaw.min.css</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\fonts\glyphicons-halflings-regular.svg">
+      <Link>Dashboard\Content\fonts\glyphicons-halflings-regular.svg</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\js\bootstrap.min.js">
+      <Link>Dashboard\Content\js\bootstrap.min.js</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\js\d3.layout.min.js">
+      <Link>Dashboard\Content\js\d3.layout.min.js</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\js\d3.min.js">
+      <Link>Dashboard\Content\js\d3.min.js</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\js\hangfire.js">
+      <Link>Dashboard\Content\js\hangfire.js</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\js\jquery-1.10.2.min.js">
+      <Link>Dashboard\Content\js\jquery-1.10.2.min.js</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\js\moment.min.js">
+      <Link>Dashboard\Content\js\moment.min.js</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Hangfire.Core\Dashboard\Content\js\rickshaw.min.js">
+      <Link>Dashboard\Content\js\rickshaw.min.js</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="..\Common\Hangfire.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\build\ILMerge.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
